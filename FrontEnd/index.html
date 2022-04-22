@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../stylesheet/style.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat,garamound">
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled JavaScript -->
@@ -55,24 +55,35 @@
           <!--====Container Goes here===-->
 
           <div class="row">
-                <div class="col-lg-1 col-md-1 col-sm-12">
+            <h5>VotersID: <span class="showAccount"></span></h5>
+                <div class="col-lg col-md col-sm-12">
                     
                 </div>
+                
 
-                <div class="col-lg-10 col-md-10 col-sm-12 d-flex text-center">
-                        <h5>Account: <span class="showAccount"></span></h5>
-                        <h1>
+                <div class="col-lg-10 col-md-10 col-sm-12  text-center">
+                        
+                        <center><h1 class="mt-3" style="font-size: 60px;">
                             ZURI Elections Portal 
                         </h1>
-                        <h3>Sessional Academic Election Portal</h3> </div>
+                        <h3>Sessional Academic Election Portal</h3> 
+
+                        <img src="../images/Zuri Elections.jpg" class="mt-5" alt="Zuri Elections" height="500px" width="auto"/>
+
+                        </center>
+                
+
                   
-<div class="d-flex justify-content-center">
-                    <img src="../svg/undraw_voting_nvu7.svg" class="" alt="Zuri Elections" height="400px" width="auto"/>
+                <!--<div class="justify-content-center">
+                    <img src="../svg/undraw_voting_nvu7.svg" class="" alt="Zuri Elections" />
+                </div>-->
                 </div>
 
-                <div class="col-lg-1 col-md-1 col-sm-12">
+                <div class="col-lg col-md col-sm-12">
                    
-         </div><!--===End of First Row Container===-->
+                </div><!--===End of First Row Container===-->
+            </div>
+        
 
          <div class="row">
                 <div class="col-lg-1 col-md-1 col-sm-12">
@@ -82,8 +93,8 @@
 
                 <div class="col-lg-10 col-md-10 col-sm-12">
                     <center>
-                        <h1 class="pt-5">
-                            Your Vote, Your Voice 
+                        <h1 class="pt-5" style="font-size: 60px; font-family: Montserrat;">
+                            Let Your Voice Count! 
                         </h1>
                         <h4>Find The Candidates Below Vying For the Open Positions Below</h4>
                     </center>
@@ -110,31 +121,33 @@
                
             </div><!--===End of  Row Div===-->
 
-            <div id="div2" class="container">
+            <div id="div2" class="container ">
                 <div class="row pt-5"> <!--===Candidates List-->
                     <div class="col-lg-4 col-md-4 col-sm-12 candidate"> <!--===Candidate no1 -->
-                        <img src="../images/masterclass_session_2-1.png" class="rounded mx-auto d-block" width="auto" height="350px"/>
-                        <button href="#" class="btn btn-outline-success btn-lg mt-3" type="submit">
+                        <img src="../images/00-trump-cand-page-mediumSquareAt3X.jpg" class="rounded mx-auto d-block" width="auto" height="350px"/>
+                        <center><button id="wallet" class="btn btn-outline-success btn-lg mb-3 mt-3 enableEthereumButton">
                             Connect Wallet To Vote
-                        </button>
+                        </button></center>
                     </div>
 
                     <div class="col-lg-4 col-md-4 col-sm-12"><!--===Candidate no2 -->
-                        <img src="../images/masterclass_session_2-1.png" class="rounded mx-auto d-block" width="auto" height="350px"/>
-                        <button href="#" class="btn btn-outline-success btn-lg mt-3" type="submit">
+                        <img src="../images/download.jpg" class="rounded mx-auto d-block" width="auto" height="350px"/>
+                        <center><button id="wallet" class="btn btn-outline-success btn-lg mb-3 mt-3 enableEthereumButton">
                             Connect Wallet To Vote
-                        </button>
+                        </button></center>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12"><!--===Candidate no3 -->
-                        <img src="../images/masterclass_session_2-1.png" class="rounded mx-auto d-block" width="auto" height="350px"/>
-                        <button href="#" class="btn btn-outline-success btn-lg mt-3" type="submit">
+                        <img src="../images/Buhari.jpg" class="rounded mx-auto d-block" width="auto" height="350px"/>
+                        <center><button id="wallet" class="btn btn-outline-success btn-lg mt-3 enableEthereumButton">
                             Connect Wallet To Vote
-                        </button>
+                        </button></center>
                     </div>
                 </div> <!--===End of Candidate Row-->
             </div>
 
       </div> <!--=====Container Div Ends Here===-->
+
+      <div style="padding: 70px;"></div>
     
     
       <!--===ABI ARRAY SCRIPT GOES HERE; App runs this to connect to the blockchain-->
