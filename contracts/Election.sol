@@ -19,7 +19,7 @@ contract Election is Pausable, AccessControl {
     //Hash input for batch authorizer role using keccak256
     bytes32 public constant BATCH_AUTHORIZER_ROLE = keccak256("BATCH_AUTHORIZER_ROLE");
     
-    constructor () public {
+    constructor () {
         chairman = msg.sender; 
         deadline = block.timestamp + 24 hours;
         //addCandidate = name;
@@ -84,12 +84,12 @@ contract Election is Pausable, AccessControl {
         address voterAddr;
     }
 
-
+    Candidate[] public candidates;
     ///MAPPINGS
 
     mapping(address => Voter) public voters;
     mapping(address => bool) public voted;
-    mapping(uint => Candidate) public candidates;
+ //   mapping(uint => Candidate) public candidates;
     mapping(address => BOD) public directors;
     mapping(address => Teacher) public teachers;
     mapping(address => Student) public students;
@@ -340,44 +340,30 @@ contract Election is Pausable, AccessControl {
 
     // @notice: Allows Chairman to end the vote and reveals results after time has passed
     // @dev: stops vote, checks through all accounts and reveal results
-    function end () public whenNotPaused onlyAdmin {
+    function end() public view whenNotPaused onlyAdmin returns (bytes32 names, uint256 voteCounts) {
+           // mapping(uint => Candidate) candidates;
       require(msg.sender == chairman);
       require(block.timestamp >= deadline);
 
+
       for(uint i = 0; i < candidateCount; i++) {
+          
           names[i] = candidates[i].name;
-          voteCounts[i] = candidates[i].voteCount;
+          voteCount[i] = candidates[i].voteCount;
         }
         emit  ElectionResult(names, voteCounts);
     }
-    }
+    
 
     // @notice: Allows chairman and current candidate managers to add new candidate manager
     // @dev: Only a director account from the BOD struct can be assigned
-    function assignCandidateManager(address account) public 
-    
-       // @dev: function can only be called when contract is not paused
-       whenNotPaused onlyCandidateManager {
-        
-        // @dev: Checks if address is valid
-        require(
-            account != address(0), "Cannot assign to an invalid address"
-            );
-
-        // @notice: checks if address is a member of the board of director
-        // @dev: the director property was drawn from the "directors" mappings
-        require(
-            account == directors[account].director
-            );
-
-        // @dev: Grant candidate setting role to a member of the board of directors
-        grantRole(
-            CANDIDATE_MANAGER_ROLE, account
-            );
-        
-        /// @notice Emit event when a new moderator has been added
+    function assignCandidateManager(address account) public whenNotPaused onlyCandidateManager {
+        require (account != address(0), "Invalid Address");
+        require (account == directors[account].director);
+        grantRole(CANDIDATE_MANAGER_ROLE, account);
         emit AssignedCandidateManager(msg.sender, account);
     }
+ 
 
     // @notice add a new batch authorizer
     function assignBatchAuthorizer(address account) public 
@@ -454,10 +440,4 @@ contract Election is Pausable, AccessControl {
         emit RemovedBatchAuthorizer(msg.sender, account);
     }
 
-
-    /// @dev function to  check if a connected user is a moderator for mod's features visibility
-    //   function checkMod(address _user) public view whenNotPaused returns(bool){
-   //     bool isAdmin = admin[_user];
-    //    return isAdmin;
-    //}
 }
