@@ -15,4 +15,4 @@ async function getAccount() {
   const account = accounts[0];
   showAccount.innerHTML = account;
 }
-    }
+    }}

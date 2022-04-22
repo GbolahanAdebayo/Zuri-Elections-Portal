@@ -100,7 +100,7 @@ contract Election is Pausable, AccessControl {
     event AddedCandidate(
         string indexed name, 
         uint indexed candidateCount, 
-        uint indexed addedTime, 
+    //    uint indexed addedTime, 
         address indexed candidateManager
     );
     
@@ -207,7 +207,7 @@ contract Election is Pausable, AccessControl {
         emit AddedCandidate(
             name, 
             candidateCount, 
-            block.timestamp, 
+        //    block.timestamp, 
             msg.sender
         );
     }
