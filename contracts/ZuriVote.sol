@@ -49,7 +49,7 @@ library SignatureSuite {
     }
 }
 
-contract NestElections {
+contract ZuriVote {
     string public name;
     string public description;
     address public votersID;
@@ -75,16 +75,18 @@ contract NestElections {
     //Add candidate event
     event CandidateAdded(uint256 indexed candidatesCount, string _name);
 
+    // Instantiate the Boadrd of Directors struct
     struct BOD {
-        address director;
+        address bodID;
     }
 
+    // Instantiate the Teachers  struct
     struct Teachers {
-        address teacher;
+        address teachersID;
     }
 
     struct Students {
-        address student;
+        address votersID;
     }
 
     struct Candidate {
@@ -93,6 +95,7 @@ contract NestElections {
         uint256 voteCount;
     }
 
+    // Modifier granting permision to only Admin
     modifier onlyAdmin() {
         bool IsAdmin = false;
         for (uint256 i; i < adminCount; i++) {
@@ -105,6 +108,7 @@ contract NestElections {
         _;
     }
 
+    modifier grants permission to only valid candidate
     modifier onlyValidCandidate(uint256 _candidateID) {
         require(
             _candidateID < candidatesCount && _candidateID >= 0,
@@ -113,6 +117,7 @@ contract NestElections {
         _;
     }
 
+    // Ensures only called when Elction is ongoing
     modifier electionIsOngoing() {
         require(!isEnded, "Election has ended");
         _;
@@ -141,12 +146,12 @@ contract NestElections {
     uint256[] public winnerIDs;
 
     constructor(string[] memory _nda, string[] memory _candidates) {
-        electionTimeline = block.timestamp + 12 hours;
+        electionTimeline = block.timestamp + 8 minutes;
         _addAdmin(chairman = msg.sender);
         _setUpElection(_nda, _candidates);
     }
 
-    //tiime left for voting to end
+    //time left for voting to end
     function timeLeft() public view returns (uint256) {
         if (block.timestamp >= electionTimeline) {
             return 0;
@@ -215,12 +220,6 @@ contract NestElections {
         _vote(_candidateID, _voter);
     }
 
-    //function addAdmin allows chairman distribute admin permission
-    //function startElection only callable by admin. Used to start election
-    //function end election only callable by admins used to end election
-    //vote Public function that allows the public to cast votes for candidate
-    //function voteWithSig that allows theier-party to
-    //Calculate election winner
     function _calculateWinner() internal onlyAdmin {
         for (uint256 i = 0; i < candidatesCount; i++) {
             if (candidates[i].voteCount > winnerVoteCount) {
