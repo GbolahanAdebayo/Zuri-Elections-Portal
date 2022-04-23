@@ -108,7 +108,7 @@ contract ZuriVote {
         _;
     }
 
-    modifier grants permission to only valid candidate
+    //modifier grants permission to only valid candidate
     modifier onlyValidCandidate(uint256 _candidateID) {
         require(
             _candidateID < candidatesCount && _candidateID >= 0,

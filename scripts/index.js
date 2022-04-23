@@ -25,7 +25,7 @@ async function execute() {
     // function
     // node conection
     const contractAddress = "";
-    const abi = [];
+    const abi = ;
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner(); // this is going to get the connected account
