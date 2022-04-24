@@ -1,4 +1,4 @@
-Contract Address: https://rinkeby.etherscan.io/tx/0x77ca31e02897fa8fc5d97c597fb6eba60e5ae433b391f98af2da82bf21ae8b97
+Deployed To Rinkeby Here: https://rinkeby.etherscan.io/address/0x72Bf3aD82718c182F2Afb2E2aC96d2c85d3Cc3B4#code
 
 Team repo: https://github.com/BLOCKGAMES-TEAM-R/Zuri-Elections-Portal
 
