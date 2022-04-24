@@ -1,4 +1,4 @@
-Deployed To Rinkeby Here: https://rinkeby.etherscan.io/address/0x72Bf3aD82718c182F2Afb2E2aC96d2c85d3Cc3B4#code
+Deployed To Rinkeby Here: https://rinkeby.etherscan.io/address/0x72Bf3aD82718c182F2Afb2E2aC96d2c85d3Cc3B4
 
 Team repo: https://github.com/BLOCKGAMES-TEAM-R/Zuri-Elections-Portal
 
